@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CleanMachine</string>
+    <string name="nav_scan">Scan</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_map">Locations</string>
+    <string name="nav_settings">Settings</string>
+    <string name="firstFragment">Home Fragment</string>
+    <string name="secondFragment">Scan Fragment</string>
+    <string name="thirdFragment">Map Fragment</string>
+    <string name="fourthFragment">Settings Fragment</string>
+    <string name="loginFragment">Login</string>
+
+</resources>
