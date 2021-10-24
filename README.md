@@ -1,5 +1,6 @@
 # CleanMachine
 Prototype of Clean Machine Recycling App
+
 CS 196
 
 Group 39-FA21
