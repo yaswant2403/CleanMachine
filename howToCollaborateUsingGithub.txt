@@ -1,0 +1,51 @@
+# How to efficiently make changes to CleanMachine repository and correctly push any code
+# or add any images to the repo
+
+# Video Reference: https://www.youtube.com/watch?v=MnUd31TvBoU&ab_channel=TheNetNinja
+# Do all git commands in Android Studio terminal if working on Android Studior
+
+
+STEP 1: Always ensure you're in the master branch before pulling code from repo
+
+git checkout master
+
+STEP 2: Pull to get the most updated code
+
+git pull origin master 
+
+STEP 3: NEVER EDIT MASTER BRANCH to avoid messing up the main code
+- Always create a new branch
+
+git checkout -b "branch name"
+
+STEP 4: Make your changes to a file OR Add images/vectors to folders
+
+STEP 5: Add all files/changes to Git workspace
+
+git add .
+
+STEP 6: Commit messages with a commit message
+
+git commit -m "______"
+
+STEP 7: Push all changes to remote repo
+
+git push origin "branch name"
+
+STEP 8: Merge branch into master branch using pull requests
+
+Click on "Compare and Pull Requests" and you can add comments or add line comments
+
+STEP 9: Review Pull Request with Everyone! IF File MISSING OR CHANGE NEEDED, proceed to STEP 10.
+-If not, do this:
+
+CONFIRM MERGE Pull Request and now the branch is merged into the master branch
+
+STEP 10: Fix the code/Add any missing elements
+-after doing so, 
+
+git add .
+
+git commit -m "_______"
+
+git push origin "branch name"
