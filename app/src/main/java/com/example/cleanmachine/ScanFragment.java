@@ -37,9 +37,9 @@ public class ScanFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("the button does something");
                 try {
-                    Intent intent = new Intent();
-                    intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     startActivity(intent);
                 } catch (Exception e){
                     e.printStackTrace();
