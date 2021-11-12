@@ -21,7 +21,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.tabs.TabLayout;
-
+// fay added button
 public class ScanFragment extends Fragment {
     Button btn;
     View view;
