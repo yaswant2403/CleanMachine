@@ -16,7 +16,7 @@ git pull origin master
 STEP 3: NEVER EDIT MASTER BRANCH to avoid messing up the main code
 - Always create a new branch
 
-git checkout -b "branch name"
+git checkout -b branch name
 
 STEP 4: Make your changes to a file OR Add images/vectors to folders
 
@@ -30,7 +30,7 @@ git commit -m "______"
 
 STEP 7: Push all changes to remote repo
 
-git push origin "branch name"
+git push origin branch name
 
 STEP 8: Merge branch into master branch using pull requests
 
@@ -48,4 +48,4 @@ git add .
 
 git commit -m "_______"
 
-git push origin "branch name"
+git push origin branch name
