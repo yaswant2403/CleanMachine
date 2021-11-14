@@ -2,6 +2,7 @@ package com.example.cleanmachine;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import java.util.Objects;
 
 public class LoginFragment extends Fragment {
     View loginLayout;
@@ -19,8 +24,8 @@ public class LoginFragment extends Fragment {
     private EditText uiPassword;
     private Button uiLogin;
 
-    private String setUser = "Admin";
-    private String setPassword = "12345";
+    private final String setUser = "UIUC";
+    private final String setPassword = "goIllini";
     private boolean isValid = false;
 
     @Nullable
@@ -55,19 +60,16 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(getActivity(), "Incorrect Credentials!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getActivity(), "Successful Login!", Toast.LENGTH_SHORT).show();
+                    FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment_container, new HomeFragment()).commit();
                 }
-                Intent intent = new Intent(getActivity(), HomeFragment.class);
-                startActivity(intent);
-
             }
         });
     }
 
     public boolean validate(String n, String p) {
-        if (n.equals(setUser) && p.equals(setUser)) {
-            return true;
-        }
-        return false;
+        return n.equals(setUser) && p.equals(setPassword);
     }
 
 }
