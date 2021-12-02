@@ -4,7 +4,7 @@
     <string name="nav_home">Home</string>
     <string name="nav_map">Locations</string>
     <string name="nav_settings">Settings</string>
-    <string name="firstFragment">Home Fragment</string>
+    <string name="firstFragment">Hello Illini!</string>
     <string name="secondFragment">Scan Fragment</string>
     <string name="thirdFragment">Map Fragment</string>
     <string name="fourthFragment">Settings Fragment</string>
