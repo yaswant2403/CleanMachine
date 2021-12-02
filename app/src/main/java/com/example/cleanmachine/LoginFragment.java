@@ -1,8 +1,6 @@
 package com.example.cleanmachine;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import java.util.Objects;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class LoginFragment extends Fragment {
     View loginLayout;
@@ -32,6 +31,8 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         loginLayout = inflater.inflate(R.layout.fragment_login,container,false);
+        BottomNavigationView bottomNav = requireActivity().findViewById(R.id.bottom_navigation);
+        MainActivity.hideBottomNav(bottomNav);
         return loginLayout;
     }
 
@@ -45,6 +46,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+
         // initialise your views
         uiLogin = (Button)loginLayout.findViewById(R.id.loginButton);
         uiName = (EditText)loginLayout.findViewById(R.id.usernameInput);
