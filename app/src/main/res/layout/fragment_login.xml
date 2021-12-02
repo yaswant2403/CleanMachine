@@ -102,7 +102,7 @@
         android:layout_height="433dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/waterBottle"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/passwordInput"

@@ -1,14 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blueScreenBackground">
 
     <TextView
+        android:id="@+id/titleHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/alegreya_bold_italic"
         android:text="@string/firstFragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:textAlignment="center"
+        android:textColor="@color/orange"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/entryText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.385" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/entryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="552dp"
+        android:fontFamily="@font/cabin_bold"
+        android:text="You've recorded ________ entries!"
+        android:textAlignment="center"
+        android:textColor="#095E0C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/recycledText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cabin_bold"
+        android:text="You've recycled ____ lbs!"
+        android:textAlignment="center"
+        android:textColor="#095E0C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entryText"
+        app:layout_constraintVertical_bias="0.134" />
+
+    <TextView
+        android:id="@+id/keepRecycle"
+        android:layout_width="323dp"
+        android:layout_height="62dp"
+        android:fontFamily="@font/bitter_bold"
+        android:text="Keep Recycling!!"
+        android:textAlignment="center"
+        android:textColor="#095E0C"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycledText"
+        app:layout_constraintVertical_bias="0.277" />
+
+    <TextView
+        android:id="@+id/recycleNear"
+        android:layout_width="321dp"
+        android:layout_height="35dp"
+        android:fontFamily="@font/bitter_italic"
+        android:text="Recycling Bins Near You!"
+        android:textAlignment="textStart"
+        android:textColor="#095E0C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/keepRecycle"
+        app:layout_constraintVertical_bias="0.457" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="157dp"
+        android:contentDescription="Illinois Logo"
+        android:layout_height="208dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/entryText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/illinoislogo"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
