@@ -8,7 +8,9 @@
     <string name="secondFragment">Scan Fragment</string>
     <string name="thirdFragment">Map Fragment</string>
     <string name="fourthFragment">Settings Fragment</string>
-    <string name="loginFragment">Login Screen</string>
+    <string name="loginFragment">Welcome To</string>
+    <string name="title">The Clean Machine!</string>
+    <string name="loginButton">Login</string>
     <string name="registerFragment">Register</string>
 
 
