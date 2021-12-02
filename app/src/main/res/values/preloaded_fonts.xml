@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/acme</item>
+        <item>@font/alegreya_bold_italic</item>
+        <item>@font/allerta</item>
+        <item>@font/average</item>
+        <item>@font/baloo</item>
+        <item>@font/bitter_bold</item>
+        <item>@font/bitter_italic</item>
+        <item>@font/cabin_bold</item>
+        <item>@font/cantarell_bold</item>
+        <item>@font/courgette</item>
+        <item>@font/gabriela</item>
+        <item>@font/inika</item>
+        <item>@font/lalezar</item>
+    </array>
+</resources>

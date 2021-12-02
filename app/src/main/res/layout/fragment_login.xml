@@ -4,20 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green">
+    android:background="@color/skyBlue">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:fontFamily="serif"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/gabriela"
         android:text="@string/loginFragment"
-        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_bold_italic"
+        android:text="@string/title"
+        android:textAlignment="center"
+        android:textColor="@color/blueIcons"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/usernameInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.216"/>
 
     <EditText
         android:id="@+id/usernameInput"
@@ -25,15 +42,17 @@
         android:layout_height="wrap_content"
         android:height="50sp"
         android:ems="10"
+        android:fontFamily="@font/bitter_bold"
         android:hint="Enter username:"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColorHint="#74090909"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.228" />
+        app:layout_constraintVertical_bias="0.219" />
 
     <EditText
         android:id="@+id/passwordInput"
@@ -41,27 +60,54 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:fontFamily="@font/bitter_bold"
         android:hint="Enter password:"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColorHint="#74090909"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameInput"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintVertical_bias="0.008" />
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/loginButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordInput"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintVertical_bias="0.141" />
+
+    <ImageView
+        android:id="@+id/waterBottle"
+        android:layout_width="258dp"
+        android:layout_height="384dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/loginButton"
+        app:layout_constraintTop_toTopOf="@+id/passwordInput"
+        app:srcCompat="@drawable/waterbottle" />
+
+    <ImageView
+        android:id="@+id/recycleImage"
+        android:layout_width="188dp"
+        android:layout_height="433dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toStartOf="@+id/waterBottle"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/passwordInput"
+        app:srcCompat="@drawable/recyclesymbol" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
