@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -12,9 +13,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setOnItemSelectedListener(navListener);
 
 
+    }
+
+    public static void hideBottomNav(BottomNavigationView navBar){
+        navBar.setVisibility(View.GONE);
+    }
+
+    public static void showBottomNav(BottomNavigationView navBar){
+        navBar.setVisibility(View.VISIBLE);
     }
 
     private final BottomNavigationView.OnItemSelectedListener navListener;
