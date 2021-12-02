@@ -1,8 +1,6 @@
 package com.example.cleanmachine;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +16,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Objects;
 
 public class LoginFragment extends Fragment {
     View loginLayout;
@@ -34,7 +31,7 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         loginLayout = inflater.inflate(R.layout.fragment_login,container,false);
-        BottomNavigationView bottomNav = getActivity().findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNav = requireActivity().findViewById(R.id.bottom_navigation);
         MainActivity.hideBottomNav(bottomNav);
         return loginLayout;
     }
