@@ -16,12 +16,15 @@
         <entry key="..\:/Users/Yash/AndroidStudioProjects/CleanMachine/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Yash/AndroidStudioProjects/CleanMachine/app/src/main/res/layout/fragment_Login.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Yash/AndroidStudioProjects/CleanMachine/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Yash/AndroidStudioProjects/CleanMachine/app/src/main/res/layout/fragment_login.xml" value="0.176" />
+        <entry key="..\:/Users/Yash/AndroidStudioProjects/CleanMachine/app/src/main/res/layout/fragment_login.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Yash/AndroidStudioProjects/CleanMachine/app/src/main/res/layout/fragment_map.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Yash/AndroidStudioProjects/CleanMachine/app/src/main/res/layout/fragment_scan.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Yash/AndroidStudioProjects/CleanMachine/app/src/main/res/layout/fragment_settings.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Yash/AndroidStudioProjects/CleanMachine/app/src/main/res/menu/bottom_navigation_bar.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Yash/AndroidStudioProjects/CleanMachine/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25625" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.15602836879432624" />
+        <entry key="app/src/main/res/layout/fragment_map.xml" value="0.15602836879432624" />
+        <entry key="app/src/main/res/layout/fragment_scan.xml" value="0.1503623188405797" />
       </map>
     </option>
   </component>
