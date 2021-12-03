@@ -11,16 +11,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn"
-            android:layout_width="match_parent"
-            android:layout_height="178dp"
-            android:layout_weight="1"
-            android:text="Button" />
-
         <TextView
             android:id="@+id/explain"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="TextView" />
@@ -49,11 +42,18 @@
         <EditText
             android:id="@+id/description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="19dp"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Enter description of object" />
+            android:hint="Enter description of object"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:text="Button" />
     </LinearLayout>
 
 </RelativeLayout>

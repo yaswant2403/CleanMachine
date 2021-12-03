@@ -60,6 +60,7 @@ public class ScanFragment extends Fragment {
                 boolean metal = false;
                 boolean plastic = false;
                 String input = description.getText().toString();
+                System.out.println(input);
                 //use .split() to separate words
                 String[] words = input.split(" ");
                 //FIRST ORGANIZATION
