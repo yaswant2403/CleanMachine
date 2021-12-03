@@ -60,7 +60,7 @@ public class ScanFragment extends Fragment {
                 boolean plastic = false;
                 String input = description.getText().toString();
                 System.out.println(input);
-                Log.d("error", input);
+                Toast.makeText(getActivity(), input, Toast.LENGTH_SHORT).show();
                 //use .split() to separate words
                 String[] words = input.split(" ");
                 //FIRST ORGANIZATION
