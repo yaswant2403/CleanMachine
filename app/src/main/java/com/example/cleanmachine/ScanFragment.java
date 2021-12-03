@@ -27,7 +27,6 @@ import com.google.android.material.tabs.TabLayout;
 public class ScanFragment extends Fragment {
     Button btn;
     View view;
-    //set textviews in layout!!
     TextView explain;
     TextView example;
     TextView category;
@@ -61,6 +60,7 @@ public class ScanFragment extends Fragment {
                 boolean plastic = false;
                 String input = description.getText().toString();
                 System.out.println(input);
+                Log.d("error", input);
                 //use .split() to separate words
                 String[] words = input.split(" ");
                 //FIRST ORGANIZATION
