@@ -61,19 +61,19 @@ public class ScanFragment extends Fragment {
                 boolean plastic = false;
                 String input = description.getText().toString();
                 //use .split() to separate words
-                String[] words = input.split(",");
+                String[] words = input.split(" ");
                 //FIRST ORGANIZATION
                 //category : metal/foil, paper/cardboard, plastic
                 for (int i = 0; i < words.length; i++) {
-                    if (words[i] == "paper" || words[i] == "cardboard") {
+                    if (words[i].equals("paper") || words[i].equals("cardboard")) {
                         paper = true;
                         landfill = false;
                     }
-                    if (words[i] == "plastic") {
+                    if (words[i].equals("plastic")) {
                         plastic = true;
                         landfill = false;
                     }
-                    if (words[i] == "metal" || words[i] == "aluminium" ) {
+                    if (words[i].equals("metal") || words[i].equals("aluminium")) {
                         metal = true;
                         landfill = false;
                     }
@@ -91,13 +91,13 @@ public class ScanFragment extends Fragment {
                     boolean dirty = false;
 
                     for (int j = 0; j < words.length; j++) {
-                        if (words[j] == "box" || words[j] == "cardboard" ) {
+                        if (words[j].equals("box") || words[j].equals("cardboard")) {
                             cardboard = true;
                         }
-                        if (words[j] == "book" || words[j] == "newspaper" || words[j] == "magazine"|| words[j] == "journal" || words[j] == "mail" || words[j] == "folder" ) {
+                        if (words[j].equals("book") || words[j].equals("newspaper") || words[j].equals("magazine") || words[j].equals("journal") || words[j].equals("mail") || words[j].equals("folder")) {
                             regular = true;
                         }
-                        if (words[j] == "oily" || words[j] == "food") {
+                        if (words[j].equals("oily") || words[j].equals("food")) {
                             dirty = true;
                         }
                     }
@@ -118,7 +118,7 @@ public class ScanFragment extends Fragment {
                 if (metal) {
                     boolean can = false;
                     for (int x = 0; x < words.length; x++) {
-                        if (words[x] == "aluminium" || words[x] == "can" ) {
+                        if (words[x].equals("aluminium") || words[x].equals("can")) {
                             can = true;
                         }
                     }
@@ -133,7 +133,7 @@ public class ScanFragment extends Fragment {
                 if (plastic) {
                     boolean bottle = false;
                     for (int x = 0; x < words.length; x++) {
-                        if (words[x] == "bottle") {
+                        if (words[x].equals("bottle")) {
                             bottle = true;
                         } else {
                             reminder.setText("please put the item in the landfill, it cannot be sorted");
