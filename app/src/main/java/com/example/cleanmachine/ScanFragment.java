@@ -79,7 +79,7 @@ public class ScanFragment extends Fragment {
                     }
                 }
                 if (landfill) {
-                    description.setText("please put the item in the landfill, it cannot be sorted");
+                    reminder.setText("please put the item in the landfill, it cannot be sorted");
                 }
                 //SECOND ORGANIZATION
                 // if paper
@@ -102,13 +102,13 @@ public class ScanFragment extends Fragment {
                         }
                     }
                     if (dirty) {
-                        description.setText("please put the item in the landfill, it cannot be sorted");
+                        reminder.setText("please put the item in the landfill, it cannot be sorted");
                     } else {
                         if (cardboard) {
-                            description.setText("please put the item in a separate designated cardboard dumpster, not the recycling bins");
+                            reminder.setText("please put the item in a separate designated cardboard dumpster, not the recycling bins");
                         }
                         if (regular) {
-                            description.setText("you may put the object in the designated paper recycling bin");
+                            reminder.setText("you may put the object in the designated paper recycling bin");
                         }
                     }
                 }
@@ -123,9 +123,9 @@ public class ScanFragment extends Fragment {
                         }
                     }
                     if (can) {
-                        description.setText("you may put the object in the designated can/bottle recycling bin if it is rinsed and clean");
+                        reminder.setText("you may put the object in the designated can/bottle recycling bin if it is rinsed and clean");
                     } else {
-                        description.setText("please put the item in the landfill, it cannot be sorted");
+                        reminder.setText("please put the item in the landfill, it cannot be sorted");
                     }
                 }
                 // check for "aluminium"
@@ -136,13 +136,13 @@ public class ScanFragment extends Fragment {
                         if (words[x] == "bottle") {
                             bottle = true;
                         } else {
-                            description.setText("please put the item in the landfill, it cannot be sorted");
+                            reminder.setText("please put the item in the landfill, it cannot be sorted");
                         }
                     }
                     if (bottle) {
-                        description.setText("only type 1 or 2 bottles can be placed in the designated can/bottle bin, please check the type and place your clean bottle in the bin");
+                        reminder.setText("only type 1 or 2 bottles can be placed in the designated can/bottle bin, please check the type and place your clean bottle in the bin");
                     } else {
-                        description.setText("please put the item in the landfill, it cannot be sorted");
+                        reminder.setText("please put the item in the landfill, it cannot be sorted");
                     }
                 }
                 // if plastic
