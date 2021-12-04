@@ -45,7 +45,6 @@ public class ScanFragment extends Fragment {
         reminder = (TextView) view.findViewById(R.id.reminder);
         description = (EditText) view.findViewById(R.id.description);
         btn = (Button) view.findViewById(R.id.btn);
-        linearLayout = (LinearLayout) view.findViewById(R.id.linLayout);
         //text views explain the identification feature
         //text inputs allow user to describe the object
         //btn takes in text input
