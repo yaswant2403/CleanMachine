@@ -58,9 +58,8 @@ public class ScanFragment extends Fragment {
                 boolean paper = false;
                 boolean metal = false;
                 boolean plastic = false;
+                boolean technology = false;
                 String input = description.getText().toString();
-                System.out.println(input);
-                Toast.makeText(getActivity(), input, Toast.LENGTH_SHORT).show();
                 //use .split() to separate words
                 String[] words = input.split(" ");
                 //FIRST ORGANIZATION
@@ -70,12 +69,16 @@ public class ScanFragment extends Fragment {
                         paper = true;
                         landfill = false;
                     }
-                    if (words[i].equals("plastic")) {
+                    if (words[i].equals("plastic") || words[i].equals("bottle")) {
                         plastic = true;
                         landfill = false;
                     }
-                    if (words[i].equals("metal") || words[i].equals("aluminium")) {
+                    if (words[i].equals("metal") || words[i].equals("aluminium") || words[i].equals("can")) {
                         metal = true;
+                        landfill = false;
+                    }
+                    if (words[i].equals("computer") || words[i].equals("tech") || words[i].equals("technology") || words[i].equals("phone") || words[i].equals("charger") || words[i].equals("wire")) {
+                        technology = true;
                         landfill = false;
                     }
                 }
@@ -86,20 +89,17 @@ public class ScanFragment extends Fragment {
                 // if paper
                 // -> check for keywords "box" + "cardboard" = goes in separate cardboard dumpster
                 // make String array
+                //paper exceptions: paper towel, paper cup, tissues,
                 if (paper) {
                     boolean cardboard = false;
-                    boolean regular = false;
                     boolean dirty = false;
 
                     for (int j = 0; j < words.length; j++) {
+                        if (words[j].equals("oily") || words[j].equals("food") || words[j].equals("dirty") || words[j].equals("cup") || words[j].equals("tissue") || words[j].equals("towel")|| words[j].equals("toilet") || words[j].equals("receipt")|| words[j].equals("carton")|| words[j].equals("wet")|| words[j].equals("pizza")|| words[j].equals("plate")) {
+                            dirty = true;
+                        }
                         if (words[j].equals("box") || words[j].equals("cardboard")) {
                             cardboard = true;
-                        }
-                        if (words[j].equals("book") || words[j].equals("newspaper") || words[j].equals("magazine") || words[j].equals("journal") || words[j].equals("mail") || words[j].equals("folder")) {
-                            regular = true;
-                        }
-                        if (words[j].equals("oily") || words[j].equals("food")) {
-                            dirty = true;
                         }
                     }
                     if (dirty) {
@@ -107,8 +107,7 @@ public class ScanFragment extends Fragment {
                     } else {
                         if (cardboard) {
                             reminder.setText("please put the item in a separate designated cardboard dumpster, not the recycling bins");
-                        }
-                        if (regular) {
+                        } else {
                             reminder.setText("you may put the object in the designated paper recycling bin");
                         }
                     }
@@ -130,7 +129,9 @@ public class ScanFragment extends Fragment {
                     }
                 }
                 // check for "aluminium"
+                // NO SOUP CANS, YES SODA CANS : watch for brands
                 // else put in landfill
+                // check glass bottles such as beer bottles and hot sauce bottles
                 if (plastic) {
                     boolean bottle = false;
                     for (int x = 0; x < words.length; x++) {
@@ -150,6 +151,9 @@ public class ScanFragment extends Fragment {
                 // -> check for "bottle"
                 // find some way to check if it is #1 or #2 type bottle
                 // else landfill
+                if (technology) {
+                        reminder.setText("please do not throw away this item in the landfill, find a e-waste recycling location");
+                }
             }
         });
         return view;
