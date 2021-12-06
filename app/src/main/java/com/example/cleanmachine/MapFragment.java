@@ -39,6 +39,9 @@ public class MapFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
+                    case 0:
+                        img.setImageResource(R.drawable.betterpin);
+                        break;
                     case 1:
                         img.setImageResource(R.drawable.loomis);
                         break;
