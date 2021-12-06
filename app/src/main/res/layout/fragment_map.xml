@@ -7,12 +7,36 @@
     android:background="@color/blueScreenBackground">
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="108dp"
         android:text="@string/thirdFragment"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="57dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/mapImg"
+        android:layout_width="217dp"
+        android:layout_height="254dp"
+        android:layout_marginTop="132dp"
+        android:src="@drawable/illinoislogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dropdown_menu" />
+
+    <Spinner
+        android:id="@+id/dropdown_menu"
+        android:layout_width="383dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="37dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
