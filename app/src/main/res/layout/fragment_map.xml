@@ -7,12 +7,42 @@
     android:background="@color/blueScreenBackground">
 
     <TextView
+        android:id="@+id/mapTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="108dp"
+        android:fontFamily="@font/bitter_bold"
         android:text="@string/thirdFragment"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="57dp" />
+        android:textSize="36sp"
+        android:textColor="#095E0C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/mapImg"
+        android:layout_width="343dp"
+        android:layout_height="352dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/betterpin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dropdown_menu"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:contentDescription="Please choose the closest location!"
+        android:id="@+id/dropdown_menu"
+        android:layout_width="383dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="37dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

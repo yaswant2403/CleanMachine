@@ -6,7 +6,7 @@
     <string name="nav_settings">Settings</string>
     <string name="firstFragment">Hello Illini!</string>
     <string name="secondFragment">Scan Fragment</string>
-    <string name="thirdFragment">Map Fragment</string>
+    <string name="thirdFragment">Map</string>
     <string name="fourthFragment">Settings Fragment</string>
     <string name="loginFragment">Welcome To</string>
     <string name="title">The Clean Machine!</string>
