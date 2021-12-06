@@ -25,12 +25,13 @@
         android:layout_width="217dp"
         android:layout_height="254dp"
         android:layout_marginTop="132dp"
-        android:src="@drawable/illinoislogo"
+        android:src="@drawable/betterpin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dropdown_menu" />
 
     <Spinner
+        android:contentDescription="Please choose the closest location!"
         android:id="@+id/dropdown_menu"
         android:layout_width="383dp"
         android:layout_height="75dp"
