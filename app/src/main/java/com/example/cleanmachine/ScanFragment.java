@@ -163,13 +163,6 @@ public class ScanFragment extends Fragment {
 
             }
         });
-//        viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-//        viewModel.getCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
-//            @Override
-//            public void onChanged(Integer integer) {
-//                viewModel.setCount(integer);
-//            }
-//        });
     }
 
 }
