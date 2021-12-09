@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-public class MainActivity extends AppCompatActivity implements ScanFragment.ScanFragmentListener {
+public class MainActivity extends AppCompatActivity {
 
 
     @Override
@@ -44,12 +44,9 @@ public class MainActivity extends AppCompatActivity implements ScanFragment.Scan
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFragment = null;
-                HomeFragment homeFragment = HomeFragment.newInstance(3);
                 switch (item.getItemId()) {
                     case R.id.nav_home:
-                        //selectedFragment = new HomeFragment();
-                        //selectedFragment.newInstance(2);
-                        selectedFragment = homeFragment;
+                        selectedFragment = new HomeFragment();
                         break;
                     case R.id.nav_scan:
                         selectedFragment = new ScanFragment();
@@ -66,10 +63,5 @@ public class MainActivity extends AppCompatActivity implements ScanFragment.Scan
         };
     }
 
-
-    @Override
-    public void countTotal(int total) {
-        HomeFragment.newInstance(total);
-    }
 
 }

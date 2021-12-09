@@ -19,14 +19,10 @@ import androidx.fragment.app.Fragment;
 
 // fay added button
 public class ScanFragment extends Fragment {
-    private ScanFragmentListener listener;
     View scanView;
     private EditText input;
     private TextView result;
     private int count;
-    public interface ScanFragmentListener {
-        void countTotal(int total);
-    }
 
     @Nullable
     @Override
@@ -62,9 +58,6 @@ public class ScanFragment extends Fragment {
                 if (userInput.length() != 0) {
                     count++;
                     Toast.makeText(getActivity(), String.valueOf(count), Toast.LENGTH_SHORT).show();
-//                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                            HomeFragment.newInstance(count)).commit();
-                    listener.countTotal(count);
                 }
                 //use .split() to separate words
                 String cantSort = "Please put the item in the landfill, it cannot be sorted!";
@@ -167,20 +160,4 @@ public class ScanFragment extends Fragment {
         });
     }
 
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof ScanFragmentListener) {
-            listener = (ScanFragmentListener) context;
-        } else {
-            throw new RuntimeException(context.toString() + "must implement ScanFragment");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
-    }
 }
