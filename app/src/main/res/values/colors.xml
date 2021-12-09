@@ -13,4 +13,5 @@
     <color name="blueIcons">#1060DA</color>
     <color name="orange">#FF5722</color>
     <color name="mainText">#095E0C</color>
+    <color name="statusBar">#0091D4</color>
 </resources>
