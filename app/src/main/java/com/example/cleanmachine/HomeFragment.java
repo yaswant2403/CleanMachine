@@ -12,8 +12,12 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.w3c.dom.Text;
+
 
 public class HomeFragment extends Fragment {
+
+    private int count;
 
     @Nullable
     @Override
@@ -22,18 +26,17 @@ public class HomeFragment extends Fragment {
         MainActivity.showBottomNav(bottomNav);
         View v = inflater.inflate(R.layout.fragment_home,container,false);
         TextView entry = v.findViewById(R.id.entryText);
+        if (getArguments() != null) {
+            count = getArguments().getInt("totalEntry");
+        }
         String s = "You've recorded no entries!";
         entry.setText(s);
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            int count = bundle.getInt("entry");
-            if (count == 0) {
-                entry.setText(s);
-            } else {
-                s = "You've recorded " + count + " entries!";
-            }
+        if (count == 0) {
             entry.setText(s);
+        } else {
+            s = "You've recorded " + count + " entries!";
         }
+        entry.setText(s);
         return v;
     }
 }

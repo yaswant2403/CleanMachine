@@ -1,6 +1,7 @@
 package com.example.cleanmachine;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -17,10 +19,14 @@ import androidx.fragment.app.Fragment;
 
 // fay added button
 public class ScanFragment extends Fragment {
+    private ScanFragmentListener listener;
     View scanView;
     private EditText input;
     private TextView result;
-    private int count = 0;
+    private int count;
+    public interface ScanFragmentListener {
+        void countTotal(int total);
+    }
 
     @Nullable
     @Override
@@ -55,10 +61,12 @@ public class ScanFragment extends Fragment {
                 }
                 if (userInput.length() != 0) {
                     count++;
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("entry",count);
-                    HomeFragment fragment = new HomeFragment();
-                    fragment.setArguments(bundle);
+                    //Toast.makeText(getActivity(), String.valueOf(count), Toast.LENGTH_SHORT).show();
+                    listener.countTotal(count);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putInt("entry",count);
+//                    HomeFragment fragment = new HomeFragment();
+//                    fragment.setArguments(bundle);
                 }
                 //use .split() to separate words
                 String cantSort = "Please put the item in the landfill, it cannot be sorted!";
@@ -159,5 +167,22 @@ public class ScanFragment extends Fragment {
 
             }
         });
+    }
+
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof ScanFragmentListener) {
+            listener = (ScanFragmentListener) context;
+        } else {
+            throw new RuntimeException(context.toString() + "must implement ScanFragment");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
     }
 }

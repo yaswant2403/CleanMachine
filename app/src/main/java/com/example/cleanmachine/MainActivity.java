@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ScanFragment.ScanFragmentListener {
 
 
     @Override
@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         selectedFragment).commit();
-
                 return true;
             }
 
@@ -66,4 +65,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void countTotal(int total) {
+        Fragment fragment = new HomeFragment();
+        Bundle args = new Bundle();
+        args.putInt("totalEntry", total);
+        fragment.setArguments(args);
+    }
 }

@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:fontFamily="@font/cabin_bold"
-        android:text="You've recorded ________ entries!"
+        android:text="Placeholder"
         android:textAlignment="center"
         android:textColor="#095E0C"
         android:textSize="24sp"
