@@ -57,30 +57,34 @@ public class ScanFragment extends Fragment {
                 boolean plastic = false;
                 boolean technology = false;
                 String userInput = input.getText().toString();
+                String defaultResult = "Search to Find Out Which Recycling Bin To Use!";
+                if (userInput.length() == 0) {
+                    result.setText(defaultResult);
+                }
                 //use .split() to separate words
-                String[] words = userInput.split(" ");
                 String cantSort = "Please put the item in the landfill, it cannot be sorted!";
+                String[] words = userInput.split(" ");
                 //FIRST ORGANIZATION
                 //category : metal/foil, paper/cardboard, plastic
                 for (int i = 0; i < words.length; i++) {
-                    if (words[i].equals("paper") || words[i].equals("cardboard")) {
+                    if (words[i].equalsIgnoreCase("paper") || words[i].equalsIgnoreCase("cardboard")) {
                         paper = true;
                         landfill = false;
                     }
-                    if (words[i].equals("plastic") || words[i].equals("bottle")) {
+                    if (words[i].equalsIgnoreCase("plastic") || words[i].equalsIgnoreCase("bottle")) {
                         plastic = true;
                         landfill = false;
                     }
-                    if (words[i].equals("metal") || words[i].equals("aluminium") || words[i].equals("can")) {
+                    if (words[i].equalsIgnoreCase("metal") || words[i].equalsIgnoreCase("aluminium") || words[i].equalsIgnoreCase("can")) {
                         metal = true;
                         landfill = false;
                     }
-                    if (words[i].equals("computer") || words[i].equals("tech") || words[i].equals("technology") || words[i].equals("phone") || words[i].equals("charger") || words[i].equals("wire")) {
+                    if (words[i].equalsIgnoreCase("computer") || words[i].equalsIgnoreCase("tech") || words[i].equalsIgnoreCase("technology") || words[i].equalsIgnoreCase("phone") || words[i].equalsIgnoreCase("charger") || words[i].equalsIgnoreCase("wire")) {
                         technology = true;
                         landfill = false;
                     }
                 }
-                if (landfill) {
+                if (userInput.length() > 0 && landfill) {
                     result.setText(cantSort);
                 }
                 //SECOND ORGANIZATION
@@ -93,10 +97,10 @@ public class ScanFragment extends Fragment {
                     boolean dirty = false;
 
                     for (int j = 0; j < words.length; j++) {
-                        if (words[j].equals("oily") || words[j].equals("food") || words[j].equals("dirty") || words[j].equals("cup") || words[j].equals("tissue") || words[j].equals("towel")|| words[j].equals("toilet") || words[j].equals("receipt")|| words[j].equals("carton")|| words[j].equals("wet")|| words[j].equals("pizza")|| words[j].equals("plate")) {
+                        if (words[j].equalsIgnoreCase("oily") || words[j].equalsIgnoreCase("food") || words[j].equalsIgnoreCase("dirty") || words[j].equalsIgnoreCase("cup") || words[j].equalsIgnoreCase("tissue") || words[j].equalsIgnoreCase("towel")|| words[j].equalsIgnoreCase("toilet") || words[j].equalsIgnoreCase("receipt")|| words[j].equalsIgnoreCase("carton")|| words[j].equalsIgnoreCase("wet")|| words[j].equalsIgnoreCase("pizza")|| words[j].equalsIgnoreCase("plate")) {
                             dirty = true;
                         }
-                        if (words[j].equals("box") || words[j].equals("cardboard")) {
+                        if (words[j].equalsIgnoreCase("box") || words[j].equalsIgnoreCase("cardboard")) {
                             cardboard = true;
                         }
                     }
@@ -116,7 +120,7 @@ public class ScanFragment extends Fragment {
                 if (metal) {
                     boolean can = false;
                     for (int x = 0; x < words.length; x++) {
-                        if (words[x].equals("aluminium") || words[x].equals("can")) {
+                        if (words[x].equalsIgnoreCase("aluminium") || words[x].equalsIgnoreCase("can")) {
                             can = true;
                         }
                     }
@@ -133,7 +137,7 @@ public class ScanFragment extends Fragment {
                 if (plastic) {
                     boolean bottle = false;
                     for (int x = 0; x < words.length; x++) {
-                        if (words[x].equals("bottle")) {
+                        if (words[x].equalsIgnoreCase("bottle")) {
                             bottle = true;
                         } else {
                             result.setText(cantSort);

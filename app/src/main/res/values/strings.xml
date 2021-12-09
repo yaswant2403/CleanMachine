@@ -12,6 +12,7 @@
     <string name="title">The Clean Machine!</string>
     <string name="loginButton">Login</string>
     <string name="registerFragment">Register</string>
+    <string name="defaultResult">Search to Find Out Which Recycling Bin To Use!</string>
 
 
 </resources>
