@@ -43,15 +43,12 @@ public class HomeFragment extends Fragment {
             count = getArguments().getInt("entryTotal");
         }
         viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-        viewModel.getCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
-            @Override
-            public void onChanged(Integer integer) {
-                if (integer == 0) {
-                    s = "You've recorded no entries!";
-                } else {
-                    s = "You've recorded " + count + " entries!";
-                }
-                entry.setText(s);
+        viewModel.getCount().observe(getViewLifecycleOwner(), integer -> {
+            if (integer == 0) {
+                entry.setText("You've recorded no entries!");
+            } else {
+                String count = String.valueOf(integer);
+                entry.setText("You've recorded " + count + " entries!");
             }
         });
     }

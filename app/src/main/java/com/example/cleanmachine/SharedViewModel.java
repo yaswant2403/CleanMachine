@@ -12,6 +12,7 @@ public class SharedViewModel extends ViewModel {
     }
 
     public LiveData<Integer> getCount() {
+        System.out.println(count);
         return count;
     }
 
