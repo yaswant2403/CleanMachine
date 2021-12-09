@@ -61,12 +61,10 @@ public class ScanFragment extends Fragment {
                 }
                 if (userInput.length() != 0) {
                     count++;
-                    //Toast.makeText(getActivity(), String.valueOf(count), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), String.valueOf(count), Toast.LENGTH_SHORT).show();
+//                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                            HomeFragment.newInstance(count)).commit();
                     listener.countTotal(count);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putInt("entry",count);
-//                    HomeFragment fragment = new HomeFragment();
-//                    fragment.setArguments(bundle);
                 }
                 //use .split() to separate words
                 String cantSort = "Please put the item in the landfill, it cannot be sorted!";

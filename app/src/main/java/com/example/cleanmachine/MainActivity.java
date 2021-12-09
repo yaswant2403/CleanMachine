@@ -44,10 +44,12 @@ public class MainActivity extends AppCompatActivity implements ScanFragment.Scan
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFragment = null;
-
+                HomeFragment homeFragment = HomeFragment.newInstance(3);
                 switch (item.getItemId()) {
                     case R.id.nav_home:
-                        selectedFragment = new HomeFragment();
+                        //selectedFragment = new HomeFragment();
+                        //selectedFragment.newInstance(2);
+                        selectedFragment = homeFragment;
                         break;
                     case R.id.nav_scan:
                         selectedFragment = new ScanFragment();
@@ -67,9 +69,7 @@ public class MainActivity extends AppCompatActivity implements ScanFragment.Scan
 
     @Override
     public void countTotal(int total) {
-        Fragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putInt("totalEntry", total);
-        fragment.setArguments(args);
+        HomeFragment.newInstance(total);
     }
+
 }

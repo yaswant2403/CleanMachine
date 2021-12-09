@@ -18,25 +18,40 @@ import org.w3c.dom.Text;
 public class HomeFragment extends Fragment {
 
     private int count;
+    View v;
+    private TextView entry;
+
+    public static HomeFragment newInstance(int total) {
+        Bundle args = new Bundle();
+        HomeFragment fragment = new HomeFragment();
+        args.putInt("entryTotal",total);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         BottomNavigationView bottomNav = requireActivity().findViewById(R.id.bottom_navigation);
         MainActivity.showBottomNav(bottomNav);
-        View v = inflater.inflate(R.layout.fragment_home,container,false);
-        TextView entry = v.findViewById(R.id.entryText);
+        v = inflater.inflate(R.layout.fragment_home,container,false);
+        entry = v.findViewById(R.id.entryText);
+        return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
-            count = getArguments().getInt("totalEntry");
+            count = getArguments().getInt("entryTotal");
         }
         String s = "You've recorded no entries!";
-        entry.setText(s);
+        entry.setText(String.valueOf(count));
         if (count == 0) {
             entry.setText(s);
         } else {
             s = "You've recorded " + count + " entries!";
         }
-        entry.setText(s);
-        return v;
+        //entry.setText(s);
     }
 }
