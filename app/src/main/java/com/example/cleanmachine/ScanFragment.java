@@ -25,26 +25,24 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.tabs.TabLayout;
 // fay added button
 public class ScanFragment extends Fragment {
-    Button btn;
-    View view;
-    TextView explain;
-    TextView example;
-    TextView category;
-    TextView reminder;
-    EditText description;
-    LinearLayout linearLayout;
+    View scanView;
+    private EditText input;
+    private TextView result;
+    private Button btn;
 
-    static final int REQUEST_IMAGE_CAPTURE = 1;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_scan, container, false);
-        explain = (TextView) view.findViewById(R.id.explain);
-        example = (TextView) view.findViewById(R.id.example);
-        category = (TextView) view.findViewById(R.id.category);
-        reminder = (TextView) view.findViewById(R.id.reminder);
-        description = (EditText) view.findViewById(R.id.description);
-        btn = (Button) view.findViewById(R.id.btn);
+        scanView = inflater.inflate(R.layout.fragment_scan, container, false);
+        return scanView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        input = (EditText)scanView.findViewById(R.id.description);
+        result = (TextView)scanView.findViewById(R.id.result);
+        btn = (Button)scanView.findViewById(R.id.btn);
         //text views explain the identification feature
         //text inputs allow user to describe the object
         //btn takes in text input
@@ -58,9 +56,10 @@ public class ScanFragment extends Fragment {
                 boolean metal = false;
                 boolean plastic = false;
                 boolean technology = false;
-                String input = description.getText().toString();
+                String userInput = input.getText().toString();
                 //use .split() to separate words
-                String[] words = input.split(" ");
+                String[] words = userInput.split(" ");
+                String cantSort = "Please put the item in the landfill, it cannot be sorted!";
                 //FIRST ORGANIZATION
                 //category : metal/foil, paper/cardboard, plastic
                 for (int i = 0; i < words.length; i++) {
@@ -82,7 +81,7 @@ public class ScanFragment extends Fragment {
                     }
                 }
                 if (landfill) {
-                    reminder.setText("please put the item in the landfill, it cannot be sorted");
+                    result.setText(cantSort);
                 }
                 //SECOND ORGANIZATION
                 // if paper
@@ -102,12 +101,12 @@ public class ScanFragment extends Fragment {
                         }
                     }
                     if (dirty) {
-                        reminder.setText("please put the item in the landfill, it cannot be sorted");
+                        result.setText(cantSort);
                     } else {
                         if (cardboard) {
-                            reminder.setText("please put the item in a separate designated cardboard dumpster, not the recycling bins");
+                            result.setText("Please put the item in a separate designated cardboard dumpster, not the recycling bins!");
                         } else {
-                            reminder.setText("you may put the object in the designated paper recycling bin");
+                            result.setText("Put this object in the designated paper recycling bin!");
                         }
                     }
                 }
@@ -122,9 +121,9 @@ public class ScanFragment extends Fragment {
                         }
                     }
                     if (can) {
-                        reminder.setText("you may put the object in the designated can/bottle recycling bin if it is rinsed and clean");
+                        result.setText("Put the object in the designated can/bottle recycling bin if it is rinsed and clean!");
                     } else {
-                        reminder.setText("please put the item in the landfill, it cannot be sorted");
+                        result.setText(cantSort);
                     }
                 }
                 // check for "aluminium"
@@ -137,13 +136,13 @@ public class ScanFragment extends Fragment {
                         if (words[x].equals("bottle")) {
                             bottle = true;
                         } else {
-                            reminder.setText("please put the item in the landfill, it cannot be sorted");
+                            result.setText(cantSort);
                         }
                     }
                     if (bottle) {
-                        reminder.setText("only type 1 or 2 bottles can be placed in the designated can/bottle bin, please check the type and place your clean bottle in the bin");
+                        result.setText("Only Type 1 or 2 bottles can be placed in the designated can/bottle bin. Please check the type and place your clean bottle in the bin!");
                     } else {
-                        reminder.setText("please put the item in the landfill, it cannot be sorted");
+                        result.setText(cantSort);
                     }
                 }
                 // if plastic
@@ -151,10 +150,9 @@ public class ScanFragment extends Fragment {
                 // find some way to check if it is #1 or #2 type bottle
                 // else landfill
                 if (technology) {
-                        reminder.setText("please do not throw away this item in the landfill, find a e-waste recycling location");
+                    result.setText("Do NOT throw away this item in the landfill. Find a e-waste recycling location!");
                 }
             }
         });
-        return view;
     }
 }

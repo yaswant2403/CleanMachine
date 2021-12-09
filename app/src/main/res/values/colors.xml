@@ -12,4 +12,5 @@
     <color name="blueScreenBackground">#4B95C6</color>
     <color name="blueIcons">#1060DA</color>
     <color name="orange">#FF5722</color>
+    <color name="mainText">#095E0C</color>
 </resources>

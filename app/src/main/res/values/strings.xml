@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CleanMachine</string>
-    <string name="nav_scan">Scan</string>
+    <string name="nav_scan">Recycle</string>
     <string name="nav_home">Home</string>
     <string name="nav_map">Locations</string>
     <string name="nav_settings">Settings</string>

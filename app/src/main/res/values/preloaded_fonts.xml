@@ -2,6 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/acme</item>
+        <item>@font/alegreya_bold</item>
         <item>@font/alegreya_bold_italic</item>
         <item>@font/allerta</item>
         <item>@font/average</item>
@@ -9,6 +10,7 @@
         <item>@font/bitter_bold</item>
         <item>@font/bitter_italic</item>
         <item>@font/cabin_bold</item>
+        <item>@font/cabin_medium</item>
         <item>@font/cantarell_bold</item>
         <item>@font/courgette</item>
         <item>@font/gabriela</item>
