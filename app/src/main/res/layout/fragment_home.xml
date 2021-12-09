@@ -10,91 +10,93 @@
         android:id="@+id/titleHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="116dp"
         android:fontFamily="@font/alegreya_bold_italic"
         android:text="@string/firstFragment"
         android:textAlignment="center"
         android:textColor="@color/orange"
         android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/entryText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintEnd_toStartOf="@+id/right"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.385" />
+        app:layout_constraintTop_toTopOf="@+id/top" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="172dp"
+        android:layout_height="172dp"
+        android:contentDescription="Illinois Logo"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toEndOf="@+id/titleHome"
+        app:layout_constraintTop_toTopOf="@+id/top"
+        app:srcCompat="@drawable/illinoislogo" />
 
     <TextView
         android:id="@+id/entryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="552dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/cabin_bold"
         android:text="You've recorded ________ entries!"
         android:textAlignment="center"
         android:textColor="#095E0C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/recycledText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/cabin_bold"
-        android:text="You've recycled ____ lbs!"
-        android:textAlignment="center"
-        android:textColor="#095E0C"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entryText"
-        app:layout_constraintVertical_bias="0.134" />
 
     <TextView
         android:id="@+id/keepRecycle"
         android:layout_width="323dp"
         android:layout_height="62dp"
+        android:layout_marginTop="96dp"
         android:fontFamily="@font/bitter_bold"
         android:text="Keep Recycling!!"
         android:textAlignment="center"
         android:textColor="#095E0C"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycledText"
-        app:layout_constraintVertical_bias="0.277" />
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/entryText" />
 
     <TextView
         android:id="@+id/recycleNear"
         android:layout_width="321dp"
         android:layout_height="35dp"
+        android:layout_marginTop="108dp"
         android:fontFamily="@font/bitter_italic"
         android:text="Recycling Bins Near You!"
         android:textAlignment="textStart"
         android:textColor="#095E0C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.166"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/keepRecycle"
-        app:layout_constraintVertical_bias="0.457" />
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/keepRecycle" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="157dp"
-        android:contentDescription="Illinois Logo"
-        android:layout_height="208dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="@+id/entryText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/illinoislogo"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.025" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

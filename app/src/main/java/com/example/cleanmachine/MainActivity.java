@@ -55,9 +55,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_map:
                         selectedFragment = new MapFragment();
                         break;
-                    case R.id.nav_settings:
-                        selectedFragment = new SettingsFragment();
-                        break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         selectedFragment).commit();

@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/nav_scan"
-        android:icon = "@drawable/ic_baseline_settings_overscan_24"
+        android:icon = "@drawable/ic_baseline_recycling_24"
         android:title="@string/nav_scan" />
 
     <item
@@ -16,10 +16,6 @@
         android:icon = "@drawable/ic_baseline_map_24"
         android:title="@string/nav_map" />
 
-    <item
-        android:id="@+id/nav_settings"
-        android:icon = "@drawable/ic_baseline_settings_24"
-        android:title="@string/nav_settings" />
 
 
 

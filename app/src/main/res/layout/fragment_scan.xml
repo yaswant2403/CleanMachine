@@ -4,113 +4,140 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blueScreenBackground">
+    android:background="@color/blueScreenBackground"
+    android:layout_gravity="center">
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="116dp"
-        android:layout_height="139dp"
-        android:contentDescription="Illinois Logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/illinoislogo" />
+    <TextView
+        android:id="@+id/titleDescr"
+        android:layout_width="309dp"
+        android:layout_height="105dp"
+        android:fontFamily="@font/alegreya_bold"
+        android:text="Describe the object you're recycling!!"
+        android:textAlignment="center"
+        android:textColor="#D53706"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/left"
+        app:layout_constraintTop_toTopOf="@+id/up" />
 
     <TextView
         android:id="@+id/explain"
-        android:layout_width="228dp"
-        android:layout_height="84dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="Enter the name of the item you have to determine whether or not it is recyclable"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.569"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+        android:fontFamily="@font/cabin_medium"
+        android:text="Please enter the name of the item"
+        android:textAlignment="textStart"
+        android:textColor="@color/mainText"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/titleDescr" />
 
     <TextView
         android:id="@+id/example"
-        android:layout_width="720dp"
-        android:layout_height="39dp"
-        android:layout_weight="1"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="ie: Paper = true"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/cabin_medium"
+        android:text="Ex: paper bag, water bottle, cardboard"
+        android:textColor="@color/mainText"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/explain" />
 
     <TextView
         android:id="@+id/category"
-        android:layout_width="450dp"
-        android:layout_height="131dp"
-        android:layout_weight="1"
-        android:fontFamily="sans-serif-black"
-        android:text="Categories: Plastic, Metal, Paper"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.512" />
-
-    <TextView
-        android:id="@+id/reminder"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:layout_weight="1"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text=""
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.916" />
+        android:fontFamily="@font/cabin_medium"
+        android:text="Categories: Plastic, Metal, Paper"
+        android:textColor="@color/mainText"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/example" />
 
     <EditText
         android:id="@+id/description"
-        android:layout_width="682dp"
-        android:layout_height="61dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:layout_weight="1"
         android:ems="10"
-        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="@color/mainText"
+        android:fontFamily="@font/cabin_medium"
         android:hint="Enter description of object:"
         android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.563" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/category" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/cabin_medium"
+        android:text="@string/defaultResult"
+        android:textAlignment="textStart"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
+
 
     <Button
         android:id="@+id/btn"
-        android:layout_width="275dp"
-        android:layout_height="73dp"
-        android:layout_weight="1"
-        android:fontFamily="sans-serif-condensed-medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cabin_medium"
         android:text="Search"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683" />
+        android:textColor="@color/black"
+        android:theme="@style/CustomButton"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/down"
+        app:layout_constraintEnd_toStartOf="@+id/right"
+        app:layout_constraintStart_toStartOf="@+id/left"
+        app:layout_constraintTop_toBottomOf="@+id/result"
+        app:layout_constraintVertical_bias="0.31" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".025" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".95" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
