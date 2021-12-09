@@ -16,13 +16,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 // fay added button
 public class ScanFragment extends Fragment {
     View scanView;
     private EditText input;
     private TextView result;
-    private int count;
+    private Integer count = 0;
+    private SharedViewModel viewModel;
 
     @Nullable
     @Override
@@ -37,6 +40,7 @@ public class ScanFragment extends Fragment {
         input = scanView.findViewById(R.id.description);
         result = scanView.findViewById(R.id.result);
         Button btn = scanView.findViewById(R.id.btn);
+        viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         //text views explain the identification feature
         //text inputs allow user to describe the object
         //btn takes in text input
@@ -58,6 +62,7 @@ public class ScanFragment extends Fragment {
                 if (userInput.length() != 0) {
                     count++;
                     Toast.makeText(getActivity(), String.valueOf(count), Toast.LENGTH_SHORT).show();
+                    viewModel.setCount(count);
                 }
                 //use .split() to separate words
                 String cantSort = "Please put the item in the landfill, it cannot be sorted!";
@@ -158,6 +163,13 @@ public class ScanFragment extends Fragment {
 
             }
         });
+//        viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+//        viewModel.getCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+//            @Override
+//            public void onChanged(Integer integer) {
+//                viewModel.setCount(integer);
+//            }
+//        });
     }
 
 }

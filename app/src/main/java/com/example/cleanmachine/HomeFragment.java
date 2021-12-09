@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -20,14 +22,9 @@ public class HomeFragment extends Fragment {
     private int count;
     View v;
     private TextView entry;
+    private String s;
+    private SharedViewModel viewModel;
 
-    public static HomeFragment newInstance(int total) {
-        Bundle args = new Bundle();
-        HomeFragment fragment = new HomeFragment();
-        args.putInt("entryTotal",total);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Nullable
     @Override
@@ -45,13 +42,17 @@ public class HomeFragment extends Fragment {
         if (getArguments() != null) {
             count = getArguments().getInt("entryTotal");
         }
-        String s = "You've recorded no entries!";
-        entry.setText(String.valueOf(count));
-        if (count == 0) {
-            entry.setText(s);
-        } else {
-            s = "You've recorded " + count + " entries!";
-        }
-        //entry.setText(s);
+        viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        viewModel.getCount().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                if (integer == 0) {
+                    s = "You've recorded no entries!";
+                } else {
+                    s = "You've recorded " + count + " entries!";
+                }
+                entry.setText(s);
+            }
+        });
     }
 }
