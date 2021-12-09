@@ -15,23 +15,25 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {
 
-    private TextView entry;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         BottomNavigationView bottomNav = requireActivity().findViewById(R.id.bottom_navigation);
         MainActivity.showBottomNav(bottomNav);
         View v = inflater.inflate(R.layout.fragment_home,container,false);
-        entry = v.findViewById(R.id.entryText);
-        Bundle bundle = this.getArguments();
-        int count = bundle.getInt("entry");
-        String s;
-        if (count == 0) {
-            s = "You've recorded no entries!";
-        } else {
-            s = "You've recorded " + count + " entries!";
-        }
+        TextView entry = v.findViewById(R.id.entryText);
+        String s = "You've recorded no entries!";
         entry.setText(s);
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            int count = bundle.getInt("entry");
+            if (count == 0) {
+                entry.setText(s);
+            } else {
+                s = "You've recorded " + count + " entries!";
+            }
+            entry.setText(s);
+        }
         return v;
     }
 }
