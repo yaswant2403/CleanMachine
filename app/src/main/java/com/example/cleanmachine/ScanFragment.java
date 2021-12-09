@@ -1,34 +1,26 @@
 package com.example.cleanmachine;
 
-import android.Manifest;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.nfc.Tag;
+
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.tabs.TabLayout;
 // fay added button
 public class ScanFragment extends Fragment {
     View scanView;
     private EditText input;
     private TextView result;
-    private Button btn;
+    private int count = 0;
 
     @Nullable
     @Override
@@ -40,9 +32,9 @@ public class ScanFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        input = (EditText)scanView.findViewById(R.id.description);
-        result = (TextView)scanView.findViewById(R.id.result);
-        btn = (Button)scanView.findViewById(R.id.btn);
+        input = scanView.findViewById(R.id.description);
+        result = scanView.findViewById(R.id.result);
+        Button btn = scanView.findViewById(R.id.btn);
         //text views explain the identification feature
         //text inputs allow user to describe the object
         //btn takes in text input
@@ -61,25 +53,32 @@ public class ScanFragment extends Fragment {
                 if (userInput.length() == 0) {
                     result.setText(defaultResult);
                 }
+                if (userInput.length() != 0) {
+                    count++;
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("entry",count);
+                    HomeFragment fragment = new HomeFragment();
+                    fragment.setArguments(bundle);
+                }
                 //use .split() to separate words
                 String cantSort = "Please put the item in the landfill, it cannot be sorted!";
                 String[] words = userInput.split(" ");
                 //FIRST ORGANIZATION
                 //category : metal/foil, paper/cardboard, plastic
-                for (int i = 0; i < words.length; i++) {
-                    if (words[i].equalsIgnoreCase("paper") || words[i].equalsIgnoreCase("cardboard")) {
+                for (String word : words) {
+                    if (word.equalsIgnoreCase("paper") || word.equalsIgnoreCase("cardboard")) {
                         paper = true;
                         landfill = false;
                     }
-                    if (words[i].equalsIgnoreCase("plastic") || words[i].equalsIgnoreCase("bottle")) {
+                    if (word.equalsIgnoreCase("plastic") || word.equalsIgnoreCase("bottle")) {
                         plastic = true;
                         landfill = false;
                     }
-                    if (words[i].equalsIgnoreCase("metal") || words[i].equalsIgnoreCase("aluminium") || words[i].equalsIgnoreCase("can")) {
+                    if (word.equalsIgnoreCase("metal") || word.equalsIgnoreCase("aluminium") || word.equalsIgnoreCase("can")) {
                         metal = true;
                         landfill = false;
                     }
-                    if (words[i].equalsIgnoreCase("computer") || words[i].equalsIgnoreCase("tech") || words[i].equalsIgnoreCase("technology") || words[i].equalsIgnoreCase("phone") || words[i].equalsIgnoreCase("charger") || words[i].equalsIgnoreCase("wire")) {
+                    if (word.equalsIgnoreCase("computer") || word.equalsIgnoreCase("tech") || word.equalsIgnoreCase("technology") || word.equalsIgnoreCase("phone") || word.equalsIgnoreCase("charger") || word.equalsIgnoreCase("wire")) {
                         technology = true;
                         landfill = false;
                     }
@@ -96,11 +95,11 @@ public class ScanFragment extends Fragment {
                     boolean cardboard = false;
                     boolean dirty = false;
 
-                    for (int j = 0; j < words.length; j++) {
-                        if (words[j].equalsIgnoreCase("oily") || words[j].equalsIgnoreCase("food") || words[j].equalsIgnoreCase("dirty") || words[j].equalsIgnoreCase("cup") || words[j].equalsIgnoreCase("tissue") || words[j].equalsIgnoreCase("towel")|| words[j].equalsIgnoreCase("toilet") || words[j].equalsIgnoreCase("receipt")|| words[j].equalsIgnoreCase("carton")|| words[j].equalsIgnoreCase("wet")|| words[j].equalsIgnoreCase("pizza")|| words[j].equalsIgnoreCase("plate")) {
+                    for (String word : words) {
+                        if (word.equalsIgnoreCase("oily") || word.equalsIgnoreCase("food") || word.equalsIgnoreCase("dirty") || word.equalsIgnoreCase("cup") || word.equalsIgnoreCase("tissue") || word.equalsIgnoreCase("towel") || word.equalsIgnoreCase("toilet") || word.equalsIgnoreCase("receipt") || word.equalsIgnoreCase("carton") || word.equalsIgnoreCase("wet") || word.equalsIgnoreCase("pizza") || word.equalsIgnoreCase("plate")) {
                             dirty = true;
                         }
-                        if (words[j].equalsIgnoreCase("box") || words[j].equalsIgnoreCase("cardboard")) {
+                        if (word.equalsIgnoreCase("box") || word.equalsIgnoreCase("cardboard")) {
                             cardboard = true;
                         }
                     }
@@ -119,9 +118,10 @@ public class ScanFragment extends Fragment {
                 //if metal
                 if (metal) {
                     boolean can = false;
-                    for (int x = 0; x < words.length; x++) {
-                        if (words[x].equalsIgnoreCase("aluminium") || words[x].equalsIgnoreCase("can")) {
+                    for (String word : words) {
+                        if (word.equalsIgnoreCase("aluminium") || word.equalsIgnoreCase("can")) {
                             can = true;
+                            break;
                         }
                     }
                     if (can) {
@@ -136,8 +136,8 @@ public class ScanFragment extends Fragment {
                 // check glass bottles such as beer bottles and hot sauce bottles
                 if (plastic) {
                     boolean bottle = false;
-                    for (int x = 0; x < words.length; x++) {
-                        if (words[x].equalsIgnoreCase("bottle")) {
+                    for (String word : words) {
+                        if (word.equalsIgnoreCase("bottle")) {
                             bottle = true;
                         } else {
                             result.setText(cantSort);
@@ -156,6 +156,7 @@ public class ScanFragment extends Fragment {
                 if (technology) {
                     result.setText("Do NOT throw away this item in the landfill. Find a e-waste recycling location!");
                 }
+
             }
         });
     }
