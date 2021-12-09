@@ -61,7 +61,7 @@ public class ScanFragment extends Fragment {
                 }
                 if (userInput.length() != 0) {
                     count++;
-                    Toast.makeText(getActivity(), String.valueOf(count), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), String.valueOf(count), Toast.LENGTH_SHORT).show();
                     viewModel.setCount(count);
                 }
                 //use .split() to separate words
